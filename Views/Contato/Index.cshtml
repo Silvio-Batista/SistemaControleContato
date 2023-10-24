@@ -22,14 +22,14 @@
     }
     <br />
     <h1 class="display-4">Listagem de contatos</h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nome</th>
-                <th scope="col">E-Mail</th>
-                <th scope="col">Celular</th>
-                <th scope="col"></th>
+    <table class="display compact hover" id="myTable">
+        <thead >
+            <tr >
+                <th style="text-align: center;" scope="col">#</th>
+                <th style ="text-align: center;" scope="col">Nome</th>
+                <th style="text-align: center;" scope="col">E-Mail</th>
+                <th style="text-align: center;" scope="col">Celular</th>
+                <th style="text-align: center;" scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -51,6 +51,10 @@
                     </tr>
                 }
             }
+            else {
+                <tr class="old"><td valign="top" colspan="5">Nenhum contato encontrado</td></tr>
+            }
+            
         </tbody>
     </table>
 </div>

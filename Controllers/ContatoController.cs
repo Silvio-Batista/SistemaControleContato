@@ -1,9 +1,11 @@
-﻿using ControleDeContato.Models;
+﻿using ControleDeContato.Filters;
+using ControleDeContato.Models;
 using ControleDeContato.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ControleDeContato.Controllers
 {
+    [PaginaParaUsuarioLogado]
     public class ContatoController : Controller
     {
         private readonly IContatoRepositorio _contatoRepositorio;
@@ -14,7 +16,7 @@ namespace ControleDeContato.Controllers
         {   
             var contatos = _contatoRepositorio.BuscarTodos();
             return View(contatos);
-        }
+        } 
         public IActionResult Criar()
         { 
             return View();

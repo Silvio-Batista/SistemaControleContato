@@ -27,3 +27,7 @@ body {
     width: 30px;
     height: 31px;
 }
+th {
+    justify-content: center;
+    text-align: center;
+}
