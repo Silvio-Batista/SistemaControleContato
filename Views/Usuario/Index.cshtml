@@ -22,7 +22,7 @@
     }
     <br />
     <h1 class="display-4">Listagem de usuarios</h1>
-    <table class="display" id="myTable">
+    <table class="display" id="table-usuarios">
         <thead>
             <tr>
                 <th style="text-align: center;" scope="col">#</th>
@@ -30,8 +30,10 @@
                 <th style="text-align: center;" scope="col">Login</th>
                 <th style="text-align: center;" scope="col">Email</th>
                 <th style="text-align: center;" scope="col">Perfil</th>
+                <th style="text-align: center;" scope="col">Total de contatos</th>
                 <th style="text-align: center;" scope="col">Data de cadastro</th>
                 <th style="text-align: center;" scope="col"></th>
+                
             </tr>
         </thead>
         <tbody>
@@ -45,6 +47,11 @@
                         <td>@usuario.Login</td>
                         <td>@usuario.Email</td>
                         <td>@(usuario.Perfil == ControleDeContato.Enums.PerfilEnum.Admin ? "Administrador" : "Padrão")</td>
+                        <td>
+                            <a href="javascript:" usuario-id="@usuario.Id" class="btn btn-success btn-sm btn-total-contatos" data-bs-toggle="modal" data-bs-target="#modalContatosUsuario">
+                                @(usuario.Contatos != null && usuario.Contatos.Any() ? usuario.Contatos.Count() : 0)
+                            </a>
+                        </td>
                         <td>@usuario.DataCadastro</td>
                         <td>
                             <div class="btn-group" role="group">
@@ -60,4 +67,19 @@
             }
         </tbody>
     </table>
+    <div id="modalContatosUsuario" class="modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Listagem de contatos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="listaContatosUsuario"></div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
 </div>

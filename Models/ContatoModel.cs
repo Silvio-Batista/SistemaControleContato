@@ -13,5 +13,7 @@ namespace ControleDeContato.Models
         [Required(ErrorMessage = "O Campo Celular precisa ser preenchido")]
         [Phone(ErrorMessage = "O celular é inválido")]
         public string Celular { get; set;}
+        public int? UsuarioID { get; set; }
+        public UsuarioModel Usuario { get; set; }
     }
 }
